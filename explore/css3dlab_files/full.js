@@ -112,51 +112,47 @@ function Viewport( node ) {
 var bufferspace=80;
 var wallw = 500;
 var wallh = 200;
-var regioncolours = ["blue", "url('css3dlab_files/brickwall.jpg')", "url('css3dlab_files/sback.jpg')", "yellow", "url('papad.jpg')","orange","white"];
-regioncolours[29] = "url('css3dlab_files/sback.jpg')";
+var regioncolours = {}
+regioncolours[1] = "url('css3dlab_files/brickwall.jpg')";
+regioncolours[2] = "url('css3dlab_files/sback.jpg')";
+regioncolours[3] = regioncolours[39] = "yellow";
+regioncolours[4] = regioncolours[49] = "green";
+regioncolours[5] = regioncolours[59] = "orange";
+regioncolours[6] = regioncolours[69] = "blue";
+regioncolours[9] = "white";
 var currentregion=10;
 var map = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 2, 29, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 3, 0],
-    [0, 1, 1, 2, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 3, 0],
-    [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 3, 0],
-    [0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0],
-    [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0],
-    [0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0],
-    [0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0],
-    [0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0],
-    [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0],
-    [0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0],
-    [0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0],
-    [0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-    [0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
-    [0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0],
-    [0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0],
-    [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-    [0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0],
-    [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    [0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
-    [0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0],
-    [0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0],
-    [0, 5, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0],
-    [0, 5, 5, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 4, 4, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 4, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-	];
-var unlocked = [1];
+	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+	[0,0,2,2,2,2,2,2,0,59,59,5,5,0,6,6,69,69,0,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,0,0,0,0,5,0,6,0,0,0,0,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,0,5,0,6,0,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,0,5,0,6,0,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,0,1,1,2,2,2,2,2,2,2,2,2,2,2,0],
+	[0,0,2,2,2,2,2,2,2,2,2,2,0,1,0,2,2,2,2,2,2,2,2,2,2,0,0],
+	[0,0,3,0,2,2,2,2,2,2,2,2,0,1,0,2,2,2,2,2,2,2,2,0,4,0,0],
+	[0,0,3,0,0,2,0,0,2,2,2,2,0,1,0,2,2,2,2,0,0,2,0,0,4,0,0],
+	[0,0,3,0,0,2,2,0,0,2,2,2,0,1,0,2,2,2,0,0,2,2,0,0,4,0,0],
+	[0,0,3,3,0,0,2,2,0,0,2,2,0,0,0,2,2,0,0,2,2,0,0,4,4,0,0],
+	[0,0,0,3,0,0,0,2,2,0,0,0,0,0,0,0,0,0,2,2,0,0,0,4,0,0,0],
+	[0,39,39,3,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,4,49,49,0],
+	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+];
+var unlocked = [1,2,9];
 var walls = {};
 
 function findRegion(x,y){
 	var xindex = Math.floor(x/wallw);
 	var yindex = Math.floor(y/wallw);
-	if(xindex < 0 || xindex >= map[0].length) return -1;
-	if(xindex < 0 || yindex >= map.length) return -1;
+	if(xindex < 0 || xindex >= map.length) return -1;
+	if(xindex < 0 || yindex >= map[0].length) return -1;
 	return map[xindex][yindex];
 }
 
@@ -175,10 +171,21 @@ var covered = map.map(function (row) { return row.map(function (entry) { return 
 function checksuhailanswer(){
 	console.log("Checking");
 	var ans = document.getElementById('suhailans').value.toLowerCase();
-	if(ans == "research"){
-		walls["2,2,1"].node.remove();
-		unlocked.push(2);
-		unlocked.push(29);
+	if(ans == "hbd"){
+		walls["14,2,2"].node.remove();
+		unlocked.push(3);
+		unlocked.push(39);
+		document.getElementById('key').play();
+	}
+}
+
+function checksuhail2answer(){
+	console.log("Checking");
+	var ans = document.getElementById('suhail2ans').value.toLowerCase();
+	if(ans == "hbd"){
+		walls["14,24,2"].node.remove();
+		unlocked.push(4);
+		unlocked.push(49);
 		document.getElementById('key').play();
 	}
 }
@@ -204,7 +211,8 @@ window.onload = function() {
 		else{
 			console.log("Entered ",newregion," from ",currentregion);
 			currentregion = newregion;
-			if(newregion==29) document.getElementById('svid').play();
+			if(newregion==39) document.getElementById('svid').play();
+			if(newregion==49) document.getElementById('s2vid').play();
 		}
 	}
 
@@ -332,40 +340,87 @@ window.onload = function() {
 			if(!covered[i][j][1] && map[i][j+1]==0)	coverwalls(i,j,1,i,j,1);
 			if(!covered[i][j][2] && map[i+1][j]==0)	coverwalls(i,j,2,i,j,2);
 			if(!covered[i][j][3] && map[i][j-1]==0)	coverwalls(i,j,3,i,j,3);
-
 		}
 	}
 
-	walls["1,1,0"].node.innerHTML = "<span style='color: white'>Use arrow keys to navigate</span>";
-	walls["1,3,0"].node.innerHTML = "<span>You can tell her things on the walls!</span>";
+
+	// Intro portion
+	walls["17,13,2"].node.innerHTML = "<span style='color: white'>Use arrow keys to navigate.</span>";
+	walls["15,13,1"].node.innerHTML = "<span style='color: white'>You are entering the astral plane.</span>";
+	walls["15,13,3"].node.innerHTML = "<span style='color: white'>Distances are no obstacle here.</span>";
+	walls["14,13,1"].node.innerHTML = "<span style='color: white'>What an auspicious day this is.</span>";
+	walls["14,13,3"].node.innerHTML = "<span style='color: white'>The signals are strong tonight.<br>- Pigeon Brothers Plumbing</span>";
+
+	// Birthday portion
+	// var bdaytext = document.createElement('div');
+	// bdaytext.style.width = (wallw*9).toString()+'px';
+	// bdaytext.style.height = '200px';
+	// bdaytext.innerHTML = "<span>Happy Birthday Nadiminti Sai Phani Sravanthi!!!</span>";
+	// // var [x, y] = [[0,0],[0,wallw],[wallw,wallw],[wallw,0]][d];
+	// // x += wallw*i;
+	// // y += wallw*j;
+	// // var z = -50;
+	// // var [rotx, roty, rotz] = [[270,90,180],[270,180,180],[90,270,0],[270,0,180]][d];
+	// bdaytext.cssText += CssUtils.translate( wallw*20+1, wallw*13, -50, 270, 90, 180);
+	// world.node.appendChild( bdaytext );
+	// var bdaycanvas = document.createElement('canvas');
+	// bdaycanvas.style.width = (wallw*11).toString()+'px';
+	// bdaycanvas.style.height = '200px';
+	// // var [x, y] = [[0,0],[0,wallw],[wallw,wallw],[wallw,0]][d];
+	// // x += wallw*i;
+	// // y += wallw*j;
+	// // var z = -50;
+	// // var [rotx, roty, rotz] = [[270,90,180],[270,180,180],[90,270,0],[270,0,180]][d];
+	// bdaycanvas.cssText += CssUtils.translate( wallw*21-1, wallw*14, -50, 90, 270, 0);
+	// world.node.appendChild( bdaycanvas );
 
 	// Gate for Suhail portion
-	addwall(2,2,1,'url("css3dlab_files/noentry.jpg")');
+	addwall(14,2,2,'url("css3dlab_files/noentry.jpg")');
 	var suhailq = document.createElement("div");
 	suhailq.innerHTML = `
-	Fill in the blanks:<br>Tata Institute of Fundamental ________<br>
+	Fill in the blanks:<br>The quote near the beginning is from T_im_lewee_ Park<br>
 	<input type='text' id='suhailans' oninput='checksuhailanswer()'>
 	`;
-	walls["2,2,1"].node.appendChild(suhailq);
+	walls["14,2,2"].node.appendChild(suhailq);
+	walls["18,2,2"].node.innerHTML = "<span>I've never made anything this cool before!</span>";
+	walls["18,3,1"].node.innerHTML = "<span>**HUGS**</span>";
 	// Video for Suhail
 	var suhailvid = document.createElement('video');
 	suhailvid.id = 'svid';
 	suhailvid.src = 'css3dlab_files/svid.webm';
 	suhailvid.preload = 'auto';
 	suhailvid.autoplay = 'false';
-	walls["1,4,1"].node.appendChild(suhailvid);
+	walls["20,1,3"].node.appendChild(suhailvid);
+
+	// Gate for Suhail2 portion
+	addwall(14,24,2,'url("css3dlab_files/noentry.jpg")');
+	var suhail2q = document.createElement("div");
+	suhail2q.innerHTML = `
+	Fill in the blanks:<br>The quote near the beginning is from T_im_lewee_ Park<br>
+	<input type='text' id='suhail2ans' oninput='checksuhail2answer()'>
+	`;
+	walls["14,24,2"].node.appendChild(suhail2q);
+	walls["18,24,2"].node.innerHTML = "<span>I've never made anything this cool before!</span>";
+	walls["18,23,3"].node.innerHTML = "<span>**HUGS**</span>";
+	// Video for Suhail
+	var suhail2vid = document.createElement('video');
+	suhail2vid.id = 's2vid';
+	suhail2vid.src = 'css3dlab_files/svid.webm';
+	suhail2vid.preload = 'auto';
+	suhail2vid.autoplay = 'false';
+	walls["20,25,1"].node.appendChild(suhail2vid);
 
 	// testwalls(1,1,0,1);
 	// testwalls(1,1,1,2);
 	// testwalls(1,1,2,3);
 	// testwalls(1,1,3,4);
 
-	viewport.camera.position.x=-wallw*1.5;
-	viewport.camera.position.y=-wallw*1.5;
+	viewport.camera.position.x=-wallw*17.5;
+	viewport.camera.position.y=-wallw*13.5;
 	viewport.camera.position.z=-50;
 	viewport.camera.rotation.x=270;
 	viewport.camera.rotation.y=0;
-	viewport.camera.rotation.z=-90;
+	viewport.camera.rotation.z=90;
 	viewport.camera.update();
 
 	// window.addEventListener("devicemotion", function(ev) {
@@ -464,14 +519,19 @@ window.onload = function() {
 		var yo = Math.cos(viewport.camera.rotation.z * 0.0174532925);
 
 		if(outOfBounds(-viewport.camera.position.x + xo * speed, -viewport.camera.position.y + yo * speed)){
-			speed = 0;
+			if(!outOfBounds(-viewport.camera.position.x + xo * speed, -viewport.camera.position.y))
+				viewport.camera.position.x -= xo * speed;
+			else if(!outOfBounds(-viewport.camera.position.x, -viewport.camera.position.y + yo * speed))
+				viewport.camera.position.y -= yo * speed;
+			else
+				speed=0;
 		} else {
 			viewport.camera.position.x -= xo * speed;
 			viewport.camera.position.y -= yo * speed;
-			viewport.camera.update();
-			var region = findRegion(-viewport.camera.position.x, -viewport.camera.position.y);
-			regionUpdate(region);
 		}
+		viewport.camera.update();
+		var region = findRegion(-viewport.camera.position.x, -viewport.camera.position.y);
+		regionUpdate(region);
 		if(keyState.debug)	console.log(viewport.camera.position);
 		if(keyState.debug)	console.log(viewport.camera.rotation);
 		setTimeout( arguments.callee, 15);
