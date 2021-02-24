@@ -18,12 +18,58 @@ video{
     width: 500px;
     height: 200px;
 }
+img{
+    position:absolute;
+    transition: transform 1s;
+    left:200px;
+}
 </style>
+<script>
+window.onload = function() {
+    // Birthday ponies portion
+	function sendPony(){
+		var newPony=document.createElement('img');
+		ponies =
+			[ "af.gif",
+			   "bm.gif",
+			   "cc.gif",
+			   "cs.gif",
+			   "dg.gif",
+			   "dl.gif",
+			   "ib.gif",
+			   "jl.gif",
+			   "km.gif",
+			   "kr.gif",
+			   "lw.gif",
+			   "mk.gif",
+			   "mt.gif",
+			   "mu.gif",
+			   "ni.gif",
+			   "nk.gif",
+			   "rr.gif",
+			   "rs.gif",
+			   "tj.gif",
+			   "tl.gif",
+			   "zf.gif"];
+		newPony.src="css3dlab_files/ponies/"+ponies[parseInt(Math.random()*ponies.length)];
+		newPony.style.transition = "all 4s";
+		document.body.appendChild(newPony);
+		
+		setTimeout(function(){ 
+            newPony.style.transform = "translateY(100px);";
+            setTimeout(function(){ 
+                newPony.remove();
+            },4000);
+        }, 1000);
+	}
+	window.setInterval(sendPony, 1000);
+}
+</script>
 </head>
 <body>
-    <div class="plane" style='background:red;'>
+<!--    <div class="plane" style='background:red;'>
         <video id='svid' src='css3dlab_files/svid.webm' preload='auto' autoplay='false'></video>
-    </div>
+    </div> -->
 <audio id='intro' src='css3dlab_files/intro.wav' preload='auto'></audio>
 <audio id='key' src='css3dlab_files/key.mp3' preload='auto'></audio>
 <audio id='sintro' src='css3dlab_files/sintro.wav' preload='auto'></audio>

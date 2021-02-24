@@ -3,10 +3,10 @@
 
 var CssUtils = (function() {	
 	var s = document.documentElement.style;
- 	var vendorPrefix = 
-		(s.WebkitTransform !== undefined && "-webkit-") ||
-		(s.MozTransform !== undefined && "-moz-") ||
-		(s.msTransform !== undefined && "-ms-") || "";
+ 	var vendorPrefix = '';
+		// (s.WebkitTransform !== undefined && "-webkit-") ||
+		// (s.MozTransform !== undefined && "-moz-") ||
+		// (s.msTransform !== undefined && "-ms-") || "";
 	
 	return {
 		translate: function( x, y, z, rx, ry, rz ) {
@@ -114,12 +114,12 @@ var wallw = 500;
 var wallh = 200;
 var regioncolours = {}
 regioncolours[1] = "url('css3dlab_files/brickwall.jpg')";
-regioncolours[2] = "url('css3dlab_files/sback.jpg')";
-regioncolours[3] = regioncolours[39] = "yellow";
+regioncolours[2] = regioncolours[21] = "url('css3dlab_files/astralwall.jpg')";
+regioncolours[3] = regioncolours[31] = regioncolours[39] = "yellow";
 regioncolours[4] = regioncolours[49] = "green";
 regioncolours[5] = regioncolours[59] = "orange";
 regioncolours[6] = regioncolours[69] = "blue";
-regioncolours[9] = "white";
+regioncolours[9] = regioncolours[99] = "white";
 var currentregion=10;
 var map = [
 	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -140,13 +140,17 @@ var map = [
 	[0,0,3,0,2,2,2,2,2,2,2,2,0,1,0,2,2,2,2,2,2,2,2,0,4,0,0],
 	[0,0,3,0,0,2,0,0,2,2,2,2,0,1,0,2,2,2,2,0,0,2,0,0,4,0,0],
 	[0,0,3,0,0,2,2,0,0,2,2,2,0,1,0,2,2,2,0,0,2,2,0,0,4,0,0],
-	[0,0,3,3,0,0,2,2,0,0,2,2,0,0,0,2,2,0,0,2,2,0,0,4,4,0,0],
-	[0,0,0,3,0,0,0,2,2,0,0,0,0,0,0,0,0,0,2,2,0,0,0,4,0,0,0],
-	[0,39,39,3,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,0,0,0,0,4,49,49,0],
+	[0,0,3,31,0,0,2,2,0,0,2,2,0,0,0,2,2,0,0,2,2,0,0,4,4,0,0],
+	[0,0,0,31,0,0,0,2,2,0,0,0,0,0,0,0,0,0,21,2,0,0,0,4,0,0,0],
+	[0,0,39,31,0,0,0,0,9,9,9,9,9,9,9,9,9,9,99,0,0,0,0,4,49,49,0],
 	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ];
-var unlocked = [1,2,9];
+var unlocked = [1,2,9,99];
 var walls = {};
+var currvid = '';
+var ponyexit = false;
+var gamestarted = false;
+var bgmmuted = false;
 
 function findRegion(x,y){
 	var xindex = Math.floor(x/wallw);
@@ -168,16 +172,28 @@ function outOfBounds(x,y){
 // Create Walls
 var covered = map.map(function (row) { return row.map(function (entry) { return [false, false, false, false]; }) });
 
-function checksuhailanswer(){
-	console.log("Checking");
-	var ans = document.getElementById('suhailans').value.toLowerCase();
+function checkbk1answer(){
+	var ans = document.getElementById('bk1ans').value.toLowerCase();
 	if(ans == "hbd"){
 		walls["14,2,2"].node.remove();
 		unlocked.push(3);
-		unlocked.push(39);
 		document.getElementById('key').play();
 	}
 }
+function checkbk2answer(){
+	var ans = document.getElementById('bk2ans').value.toLowerCase();
+	if(ans == "hbd"){
+		walls["18,2,1"].node.remove();
+		unlocked.push(31);
+		document.getElementById('key').play();
+	}
+}
+function checkbk3answer(){
+	walls["20,3,3"].node.remove();
+	unlocked.push(39);
+	document.getElementById('key').play();
+}
+
 
 function checksuhail2answer(){
 	console.log("Checking");
@@ -190,9 +206,60 @@ function checksuhail2answer(){
 	}
 }
 
-window.onload = function() {
-	
-	var maxSpeed = 5;
+function startthings(i){
+	var stt = document.getElementById('starting');
+	if(i==0){
+		stt.innerHTML = "Use arrow keys to navigate.<br>Click for more.";
+		stt.onclick = function(){ startthings(1); };
+	}
+	if(i==1){
+		stt.innerHTML = "Use arrow keys to navigate.<br><span style='font-size: xx-small;'>There are bugs so you might need to follow onscreen commands that pop up once in a while.</span><br>Click one last time for more.";
+		stt.onclick = function(){ startthings(2); };
+		var bgm = document.getElementById('bgm');
+		bgm.play();
+		bgm.pause();
+		var bdm = document.getElementById('bdm');
+		bdm.play();
+		bdm.pause();
+	}
+	if(i==2){
+		stt.innerHTML = "Use arrow keys to navigate.<br><span style='font-size: xx-small;'>There are bugs so you might need to follow onscreen commands that pop up once in a while.</span><br>Have fun!";
+		stt.onclick = null;
+	}
+
+}
+
+function showmusic(){
+	document.getElementById('musicnotice').className += " inandout";
+	setTimeout(function() {document.getElementById('musicnotice').className = "notice";}, 4000)
+}
+function showplay(){
+	document.getElementById('playnotice').className += " inandout";
+	setTimeout(function() {document.getElementById('playnotice').className = "notice";}, 4000)
+}
+function startbgm(){
+	var bgm = document.getElementById('bgm');
+	var bdm = document.getElementById('bdm');
+	bdm.pause();
+	bgm.play();
+	setTimeout(function(){
+		if(bgm.paused)
+			showmusic();
+	},100);
+}
+function startbdm(){
+	var bgm = document.getElementById('bgm');
+	var bdm = document.getElementById('bdm');
+	bgm.pause();
+	bdm.play();
+	setTimeout(function(){
+		if(bdm.paused)
+			showmusic();
+	},100);
+}
+
+window.onload = function() {	
+	var maxSpeed = 8;
 	var accel = 0.2;
 	var speed = 0;
 	var viewport = new Viewport( document.body );
@@ -203,16 +270,73 @@ window.onload = function() {
 		strafeLeft: false,
 		strafeRight: false
 	};
+	var running=false;
 	var pointer = { x: 0, y: 0 };
 
 	function regionUpdate(newregion){
-		if(currentregion==10)	document.getElementById('intro').play();
 		if(currentregion==newregion)	return;
 		else{
 			console.log("Entered ",newregion," from ",currentregion);
+			var bgm = document.getElementById('bgm');
+			var bdm = document.getElementById('bgm');
+			switch(newregion){
+				case 39:
+					bgm.pause();
+					var bv = document.getElementById('bkvid')
+					bv.requestFullscreen().then(function() {bv.play();}, function() {
+						showplay();
+						currvid = 'bkvid';
+					});
+					break;
+				case 49:
+					bgm.pause();
+					var sv = document.getElementById('s2vid');
+					sv.requestFullscreen().then(function() {sv.play();}, function() {
+						showplay();
+						currvid = 's2vid';
+					});
+					break;
+				case 99:
+					if(!ponyexit){
+						unlocked.push(21);
+						walls["19,19,3"].node.remove();
+						ponyexit = true;
+					}
+					if(currentregion==21){
+						startbdm();
+					}
+					break;
+				case 9:
+					if(currentregion==2){
+						startbdm();
+					}
+					break;
+			}
+			if(!bgmmuted){
+				switch(currentregion){
+					case 1:
+						gamestarted = true;
+						startbgm();
+						break;
+					case 39:
+						startbgm()
+						break;
+					case 49:
+						startbgm()
+						break;
+					case 99:
+						if(newregion==21){
+							startbgm();
+						}
+						break;
+					case 9:
+						if(newregion==2){
+							startbgm();
+						}
+						break;
+				}
+			}
 			currentregion = newregion;
-			if(newregion==39) document.getElementById('svid').play();
-			if(newregion==49) document.getElementById('s2vid').play();
 		}
 	}
 
@@ -269,70 +393,6 @@ window.onload = function() {
 		coverwalls(newi,newj,newd,si,sj,sd);
 	}	
 
-	// function buildCube( colour, w, h, d, x, y, z, rx, ry, rz ) {
-
-	// 	world.addPlane( new Plane(colour, h, w, x, y, z, 0, 180, 90));		
-	// 	world.addPlane( new Plane(colour, w, d, x, y, z, 90, 0, 0));
-	// 	world.addPlane( new Plane(colour, d, h, x, y, z, 0, 270, 0));
-	// 	world.addPlane( new Plane(colour, d, h, x+w, y, z+d, 0, 90, 0));
-	// 	world.addPlane( new Plane(colour, w, d, x+w, y+h, z, 90, 180, 0));
-	// 	world.addPlane( new Plane(colour, w, h, x, y, z+d, 0, 0, 0));
-	// }
-
-	// // floor
-	// world.addPlane( new Plane("url(wood.jpg)", 800, 800, -400, 400, 53, 180, 0, 0));
-
-	// // walls
-	// world.addPlane( new Plane("red", 800, 500, 400, -400, -447, 270, 0,180));
-	// world.addPlane( new Plane("blue", 800, 500, -400, -400, -447, 270, 90, 180));
-	// world.addPlane( new Plane("green", 800, 500, -400, 400, -447, 90, 00, 0,0));
-	// world.addPlane( new Plane("yellow", 800, 500, 400, 400, -447, 90, 270, 0));
-
-	// // rug
-	// world.addPlane( new Plane("url(rug.jpg)", 200, 340, 100, -170, 52,0,180,0));
-
-	// // table
-	// buildCube("url(desk.jpg)", 10, 10, 100, -50, -100, -49);
-	// buildCube("url(desk.jpg)", 10, 10, 100, 50, -100, -49);
-	// buildCube("url(desk.jpg)", 10, 10, 100, -50, 100, -49);
-	// buildCube("url(desk.jpg)", 10, 10, 100, 50, 100, -49);
-	// buildCube("url(desk.jpg)", 130, 250, 15, -60, -120, -65);
-
-	// // chair
-	// buildCube("url(desk.jpg)", 10, 10, 55, 135, -30, -4);
-	// buildCube("url(desk.jpg)", 10, 10, 55, 135, 30, -4);
-	// buildCube("url(desk.jpg)", 10, 10, 55, 75, -30, -4);
-	// buildCube("url(desk.jpg)", 10, 10, 55, 75, 30, -4);
-	// buildCube("#111", 60, 70, 15, 75, -30, -20);
-	// buildCube("#111", 10, 70, 95, 135, -30, -100);
-
-	// // mac
-	// buildCube("#eee", 10, 120, 85, -30, -60, -170);
-	// buildCube("#ccc", 40, 50, 2, -50, -25, -67);
-	// world.addPlane( new Plane("url(osx.jpg)", 110, 65,-19,-55,-165,90,90,0));
-
-	// //buildCube("#ddd", 2, 50, 50, -50, -25, -118);
-	// world.addPlane( new Plane("#bbb", 2, 50,-33,-25,-115,90,0,20));
-	// world.addPlane( new Plane("#999", 50, 50,-33,-25,-115,0,250,0));
-	// world.addPlane( new Plane("#bbb", 2, 50,-31,25,-115,90,180,340));
-	// world.addPlane( new Plane("#eee", 50, 50,-48,-25,-68,0,70,0));
-	// world.addPlane( new Plane("#ddd", 2, 50,-30,-25,-115,0,160,0));
-
-	// // keyboard
-	// buildCube("url(mac-keybd.png)", 31, 70, 1, 10, -35, -67);
-
-	// // mouse
-	// buildCube("#eee", 20, 12, 2, 20, 60, -69);
-
-	// // bookshelf
-	// buildCube("url(desk.jpg)", 10, 50, 300, -350, 345, -250);
-	// buildCube("url(desk.jpg)", 10, 50, 300, -150, 345, -250);
-	// buildCube("url(desk.jpg)", 190, 50, 10, -340, 345, -250); // shelf
-	// buildCube("url(desk.jpg)", 190, 50, 10, -340, 345, -160); // shelf
-	// buildCube("url(desk.jpg)", 190, 50, 10, -340, 345, -65); // shelf
-	// buildCube("url(desk.jpg)", 190, 50, 10, -340, 345, 30); // shelf
-
-
 	for(var i = 0; i < map.length; i++){
 		for(var j=0; j < map[i].length; j++){
 			if(map[i][j]==0) continue;
@@ -343,65 +403,97 @@ window.onload = function() {
 		}
 	}
 
-
 	// Intro portion
-	walls["17,13,2"].node.innerHTML = "<span style='color: white'>Use arrow keys to navigate.</span>";
-	walls["15,13,1"].node.innerHTML = "<span style='color: white'>You are entering the astral plane.</span>";
-	walls["15,13,3"].node.innerHTML = "<span style='color: white'>Distances are no obstacle here.</span>";
-	walls["14,13,1"].node.innerHTML = "<span style='color: white'>What an auspicious day this is.</span>";
-	walls["14,13,3"].node.innerHTML = "<span style='color: white'>The signals are strong tonight.<br>- Pigeon Brothers Plumbing</span>";
+	walls["17,13,2"].node.innerHTML = "<span id='starting' style='color: yellow' onclick='startthings(0)'>Click for instructions.</span>";
+	walls["15,13,1"].node.innerHTML = "<span style='color: yellow'>You are entering the astral plane.</span>";
+	walls["15,13,3"].node.innerHTML = "<span style='color: yellow'>Distances are no obstacle here.</span>";
+	walls["14,13,1"].node.innerHTML = "<span style='color: yellow'>What an auspicious day this is.</span>";
+	walls["14,13,3"].node.innerHTML = "<span style='color: yellow'>The signals are strong tonight.<br>- Pigeon Brothers Plumbing</span>";
 
-	// Birthday portion
-	// var bdaytext = document.createElement('div');
-	// bdaytext.style.width = (wallw*9).toString()+'px';
-	// bdaytext.style.height = '200px';
-	// bdaytext.innerHTML = "<span>Happy Birthday Nadiminti Sai Phani Sravanthi!!!</span>";
-	// // var [x, y] = [[0,0],[0,wallw],[wallw,wallw],[wallw,0]][d];
-	// // x += wallw*i;
-	// // y += wallw*j;
-	// // var z = -50;
-	// // var [rotx, roty, rotz] = [[270,90,180],[270,180,180],[90,270,0],[270,0,180]][d];
-	// bdaytext.cssText += CssUtils.translate( wallw*20+1, wallw*13, -50, 270, 90, 180);
-	// world.node.appendChild( bdaytext );
-	// var bdaycanvas = document.createElement('canvas');
-	// bdaycanvas.style.width = (wallw*11).toString()+'px';
-	// bdaycanvas.style.height = '200px';
-	// // var [x, y] = [[0,0],[0,wallw],[wallw,wallw],[wallw,0]][d];
-	// // x += wallw*i;
-	// // y += wallw*j;
-	// // var z = -50;
-	// // var [rotx, roty, rotz] = [[270,90,180],[270,180,180],[90,270,0],[270,0,180]][d];
-	// bdaycanvas.cssText += CssUtils.translate( wallw*21-1, wallw*14, -50, 90, 270, 0);
-	// world.node.appendChild( bdaycanvas );
+	// Birthday greeting portion
+	var bdfont = (Math.random()<.5) ? 'henry' : 'paquet';
+	for(var i=0;i<9;i++)	walls["20,"+(9+i).toString()+",0"].node.style.background = 'url(css3dlab_files/'+bdfont+'/'+i.toString()+'.jpg)';
+	// Birthday ponies portion
+	function sendPony(){
+		var newPony=document.createElement('img');
+		ponies =
+			[ "af.gif",
+			   "bm.gif",
+			   "cc.gif",
+			   "cs.gif",
+			   "dg.gif",
+			   "dl.gif",
+			   "ib.gif",
+			   "jl.gif",
+			   "km.gif",
+			   "kr.gif",
+			   "lw.gif",
+			   "mk.gif",
+			   "mt.gif",
+			   "mu.gif",
+			   "ni.gif",
+			   "nk.gif",
+			   "rr.gif",
+			   "rs.gif",
+			   "tj.gif",
+			   "tl.gif",
+			   "zf.gif"];
+		newPony.src="css3dlab_files/ponies/"+ponies[parseInt(Math.random()*ponies.length)];
+		newPony.className = "pony"
+		world.node.appendChild(newPony);
+		setTimeout(function(){
+			newPony.remove();
+		}, 20000);
+	}
+	window.setInterval(sendPony, 2000);
+	// Glass wall
+	addwall(19,19,3,'url("nonexistent.jpg")');
+	walls["19,19,3"].node.style.cursor="not-allowed";
 
-	// Gate for Suhail portion
+	// Gates for BK portion
 	addwall(14,2,2,'url("css3dlab_files/noentry.jpg")');
-	var suhailq = document.createElement("div");
-	suhailq.innerHTML = `
-	Fill in the blanks:<br>The quote near the beginning is from T_im_lewee_ Park<br>
-	<input type='text' id='suhailans' oninput='checksuhailanswer()'>
+	var bk1q = document.createElement("div");
+	bk1q.className = "question";
+	bk1q.innerHTML = `
+	What was it that a monkey found worth stealing from your apartment?<br>
+	<input type='text' id='bk1ans' oninput='checkbk1answer()'>
 	`;
-	walls["14,2,2"].node.appendChild(suhailq);
-	walls["18,2,2"].node.innerHTML = "<span>I've never made anything this cool before!</span>";
-	walls["18,3,1"].node.innerHTML = "<span>**HUGS**</span>";
-	// Video for Suhail
-	var suhailvid = document.createElement('video');
-	suhailvid.id = 'svid';
-	suhailvid.src = 'css3dlab_files/svid.webm';
-	suhailvid.preload = 'auto';
-	suhailvid.autoplay = 'false';
-	walls["20,1,3"].node.appendChild(suhailvid);
+	walls["14,2,2"].node.appendChild(bk1q);
+	addwall(18,2,1,'url("css3dlab_files/noentry.jpg")');
+	var bk2q = document.createElement("div");
+	bk2q.className = "question";
+	bk2q.innerHTML = `
+	Why do we always mess up birthdays of friends!?<br>
+	<input type='text' id='bk2ans' oninput='checkbk2answer()'>
+	`;
+	walls["18,2,1"].node.appendChild(bk2q);
+	addwall(20,3,3,'url("css3dlab_files/noentry.jpg")');
+	var bk3q = document.createElement("div");
+	bk3q.className = "question";
+	bk3q.innerHTML = `
+	Which emoji is me watching Jab We Met?<br>
+	<span class="clickable"> &#x1F602 </span><span class="clickable"> &#x1F603 </span><span class="clickable"> &#x1F60D </span><span class="clickable" onclick='checkbk3answer()'> &#x1F62D </span><span class="clickable"> &#x1F601 </span>
+	`;
+	walls["20,3,3"].node.appendChild(bk3q);
+	// Video for BK
+	var bkvid = document.createElement('video');
+	bkvid.id = 'bkvid';
+	bkvid.src = 'css3dlab_files/bkvid.mp4';
+	bkvid.preload = 'auto';
+	bkvid.autoplay = 'false';
+	walls["20,2,3"].node.appendChild(bkvid);
 
 	// Gate for Suhail2 portion
 	addwall(14,24,2,'url("css3dlab_files/noentry.jpg")');
 	var suhail2q = document.createElement("div");
+	suhail2q.className = "question";
 	suhail2q.innerHTML = `
 	Fill in the blanks:<br>The quote near the beginning is from T_im_lewee_ Park<br>
 	<input type='text' id='suhail2ans' oninput='checksuhail2answer()'>
 	`;
 	walls["14,24,2"].node.appendChild(suhail2q);
-	walls["18,24,2"].node.innerHTML = "<span>I've never made anything this cool before!</span>";
-	walls["18,23,3"].node.innerHTML = "<span>**HUGS**</span>";
+	walls["18,24,2"].node.innerHTML = "<span style='color: yellow'>I've never made anything this cool before!</span>";
+	walls["18,23,3"].node.innerHTML = "<span style='color: yellow'>**HUGS**</span>";
 	// Video for Suhail
 	var suhail2vid = document.createElement('video');
 	suhail2vid.id = 's2vid';
@@ -471,6 +563,35 @@ window.onload = function() {
 			case 68:
 				keyState.debug = true;
 				break;
+			case 80:
+				if(currvid!=''){
+					document.getElementById('playnotice').style.opacity = 0;
+					var videlem = document.getElementById(currvid);
+					videlem.requestFullscreen();
+					videlem.play();
+				}
+				break;
+			case 77:
+				var reg = findRegion(-viewport.camera.position.x, -viewport.camera.position.y);
+				if(reg%10!=9){
+					var bgm = document.getElementById('bgm');
+					if(bgm.paused)
+						bgm.play();
+					else
+						bgm.pause();
+				} else if([9,99].contains(reg)){
+					var bdm = document.getElementById('bdm');
+					if(bdm.paused)
+						bdm.play();
+					else
+						bdm.pause();
+				}
+				break;
+			}
+			if(e.shiftKey){
+				running=true;
+			} else {
+				running=false;
 			}
 	}, false);
 
@@ -493,9 +614,7 @@ window.onload = function() {
 				break;
 			}
 	}, false);
-	
-	
-					
+						
 	// Game Loop
 
 	(function() {
