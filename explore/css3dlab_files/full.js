@@ -475,6 +475,9 @@ window.onload = function() {
 					case 49:
 						startbgm()
 						break;
+					case 59:
+						startbgm()
+						break;
 					case 69:
 						startbgm()
 						break;
