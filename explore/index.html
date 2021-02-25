@@ -10,6 +10,7 @@ body,html{height:100%;margin:0;overflow:hidden}
 .notice{font:12px/1.5 Tahoma,Arial;position:absolute;background:rgba(0,0,0,.7);color:white;z-index:50001}
 #playnotice{bottom:20px;left:50%;width:360px;margin-left:-180px;text-align:center;font-size:120%;border-radius:7px;opacity:0;}
 #musicnotice{bottom:20px;left:50%;width:360px;margin-left:-180px;text-align:center;font-size:120%;border-radius:7px;opacity:0;}
+#gameendnotice{bottom:20px;left:50%;width:360px;margin-left:-180px;text-align:center;font-size:120%;border-radius:7px;opacity:0;}
 .inandout{
     animation-name: inout;
     animation-duration: 4s;
@@ -62,13 +63,16 @@ video{
 <link rel="preload" href="css3dlab_files/astralwall.jpg" as="image">
 <link rel="preload" href="css3dlab_files/dream.mp3" as="audio">
 <link rel="preload" href="css3dlab_files/ponyhall.mp3" as="audio">
-<link rel="preload" href="css3dlab_files/svid.webm" as="video" type="video/webm">
+<link rel="preload" href="css3dlab_files/svid.mp4" as="video" type="video/mp4">
+<link rel="preload" href="css3dlab_files/sdvid.mp4" as="video" type="video/mp4">
+<link rel="preload" href="css3dlab_files/pvid.mp4" as="video" type="video/mp4">
 <link rel="preload" href="css3dlab_files/bkvid.mp4" as="video" type="video/mp4">
 </head>
 <body>
     <audio id='bdm' src='css3dlab_files/ponyhall.mp3' preload='auto' loop autoplay='false'></audio>
-    <audio id='bgm' src='css3dlab_files/dream.mp3' preload='auto' loop autoplay='false' volume=0></audio>
+    <audio id='bgm' src='css3dlab_files/dream.mp3' preload='auto' loop autoplay='false' volume="0.5"></audio>
     <audio id='key' src='css3dlab_files/key.mp3' preload='auto'></audio>
+    <div id='gameendnotice' class='notice'>You have unlocked everything! We hope you had a lovely time!</div>
     <div id='playnotice' class='notice'>Press p to play.</div>
-    <div id='musicnotice' class='notice'>Press m to hear the music.</div>
+    <div id='musicnotice' class='notice'>Press z to toggle music.</div>
 </body></html>
