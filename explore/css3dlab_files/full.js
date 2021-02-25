@@ -401,7 +401,7 @@ window.onload = function() {
 
 	function regionUpdate(newregion){
 		if(!gameended){
-			if(unlocked.length>=16){
+			if(unlocked.length>=17){
 				setTimeout(function(){
 					document.getElementById('gameendnotice').className += " inandout";
 					setTimeout(function() {document.getElementById('gameendnotice').className = "notice";}, 4000);
