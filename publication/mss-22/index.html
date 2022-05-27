@@ -64,7 +64,23 @@
   
     
   
-  <meta name="description" content="" />
+  <meta name="description" content="We study the relationship between various one-way communication complexity measures of a composed function with the analogous decision tree complexity of the outer function. We consider two gadgets: the AND function on 2 inputs, and the Inner Product on a constant number of inputs. More generally, we show the following when the gadget is Inner Product on $2b$ input bits for all $b \geq 2$, denoted $\mathsf{IP}$.
+- If $f$ is a total Boolean function that depends on all of its $n$ input bits, then the bounded-error one-way quantum communication complexity of $f \circ \mathsf{IP}$ equals $\Omega(n(b-1))$.
+- If $f$ is a *partial* Boolean function, then the deterministic one-way communication complexity of $f \circ \mathsf{IP}$ is at least the non-adaptive decision tree complexity of $f$.
+
+To prove our quantum lower bound, we first show a lower bound on the VC-dimension of $f \circ \mathsf{IP}$. We then appeal to a result of Klauck [STOC &#39;00], which immediately yields our quantum lower bound. Our deterministic lower bound relies on a combinatorial result independently proven by Ahlswede and Khachatrian [Adv. Appl. Math. &#39;98], and Frankl and Tokushige [Comb. &#39;99].
+
+It is known due to a result of Montanaro and Osborne [arXiv &#39;09] that the deterministic one-way communication complexity of $f \circ \mathsf{XOR}$ *equals* the non-adaptive parity decision tree complexity of $f$. In contrast, we show the following when the inner gadget is the AND function on 2 input bits.
+- There exists a function for which even the *quantum* non-adaptive AND decision tree complexity of $f$ is exponentially large in the deterministic one-way communication complexity of $f \circ \mathsf{AND}$.
+- However, for symmetric functions $f$, the non-adaptive AND decision tree complexity of $f$ is at most quadratic in the (even two-way) communication complexity of $f \circ \mathsf{AND}$.
+
+In view of the first bullet, a lower bound on non-adaptive AND decision tree complexity of $f$ *does not* lift to a lower bound on one-way communication complexity of $f \circ \mathsf{AND}$.
+
+The proof of the first bullet above uses the well-studied *Odd-Max-Bit* function.
+
+For the second bullet, we first observe a connection between the one-way communication complexity of $f$ and the *Möbius sparsity* of $f$, and then give a lower bound on the Möbius sparsity of symmetric functions. An upper bound on the non-adaptive AND decision tree complexity of symmetric functions follows implicitly from prior work on combinatorial group testing; for the sake of completeness, we include a proof of this result.
+
+It is well known that the rank of the communication matrix of a function $F$ is an upper bound on its deterministic one-way communication complexity. This bound is known to be tight for some $F$. However, in our final result we show that this is not the case when $F = f \circ \mathsf{AND}$. More precisely we show that for all $f$, the deterministic one-way communication complexity of $F = f \circ \mathsf{AND}$ is at most $(\mathsf{rank}(M_{F}))(1 - \Omega(1))$, where $M_{F}$ denotes the communication matrix of $F$." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://suhailsherif.github.io/publication/mss-22/" />
@@ -76,6 +92,9 @@
   
 
   
+  
+    
+    <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -224,9 +243,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -310,7 +329,23 @@
   <meta property="og:site_name" content="Suhail Sherif" />
   <meta property="og:url" content="https://suhailsherif.github.io/publication/mss-22/" />
   <meta property="og:title" content="One-Way Communication Complexity and Non-Adaptive Decision Trees | Suhail Sherif" />
-  <meta property="og:description" content="" /><meta property="og:image" content="https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:description" content="We study the relationship between various one-way communication complexity measures of a composed function with the analogous decision tree complexity of the outer function. We consider two gadgets: the AND function on 2 inputs, and the Inner Product on a constant number of inputs. More generally, we show the following when the gadget is Inner Product on $2b$ input bits for all $b \geq 2$, denoted $\mathsf{IP}$.
+- If $f$ is a total Boolean function that depends on all of its $n$ input bits, then the bounded-error one-way quantum communication complexity of $f \circ \mathsf{IP}$ equals $\Omega(n(b-1))$.
+- If $f$ is a *partial* Boolean function, then the deterministic one-way communication complexity of $f \circ \mathsf{IP}$ is at least the non-adaptive decision tree complexity of $f$.
+
+To prove our quantum lower bound, we first show a lower bound on the VC-dimension of $f \circ \mathsf{IP}$. We then appeal to a result of Klauck [STOC &#39;00], which immediately yields our quantum lower bound. Our deterministic lower bound relies on a combinatorial result independently proven by Ahlswede and Khachatrian [Adv. Appl. Math. &#39;98], and Frankl and Tokushige [Comb. &#39;99].
+
+It is known due to a result of Montanaro and Osborne [arXiv &#39;09] that the deterministic one-way communication complexity of $f \circ \mathsf{XOR}$ *equals* the non-adaptive parity decision tree complexity of $f$. In contrast, we show the following when the inner gadget is the AND function on 2 input bits.
+- There exists a function for which even the *quantum* non-adaptive AND decision tree complexity of $f$ is exponentially large in the deterministic one-way communication complexity of $f \circ \mathsf{AND}$.
+- However, for symmetric functions $f$, the non-adaptive AND decision tree complexity of $f$ is at most quadratic in the (even two-way) communication complexity of $f \circ \mathsf{AND}$.
+
+In view of the first bullet, a lower bound on non-adaptive AND decision tree complexity of $f$ *does not* lift to a lower bound on one-way communication complexity of $f \circ \mathsf{AND}$.
+
+The proof of the first bullet above uses the well-studied *Odd-Max-Bit* function.
+
+For the second bullet, we first observe a connection between the one-way communication complexity of $f$ and the *Möbius sparsity* of $f$, and then give a lower bound on the Möbius sparsity of symmetric functions. An upper bound on the non-adaptive AND decision tree complexity of symmetric functions follows implicitly from prior work on combinatorial group testing; for the sake of completeness, we include a proof of this result.
+
+It is well known that the rank of the communication matrix of a function $F$ is an upper bound on its deterministic one-way communication complexity. This bound is known to be tight for some $F$. However, in our final result we show that this is not the case when $F = f \circ \mathsf{AND}$. More precisely we show that for all $f$, the deterministic one-way communication complexity of $F = f \circ \mathsf{AND}$ is at most $(\mathsf{rank}(M_{F}))(1 - \Omega(1))$, where $M_{F}$ denotes the communication matrix of $F$." /><meta property="og:image" content="https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -361,7 +396,7 @@
       "url": "https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": ""
+  "description": "We study the relationship between various one-way communication complexity measures of a composed function with the analogous decision tree complexity of the outer function. We consider two gadgets: the AND function on 2 inputs, and the Inner Product on a constant number of inputs. More generally, we show the following when the gadget is Inner Product on $2b$ input bits for all $b \\geq 2$, denoted $\\mathsf{IP}$.\n- If $f$ is a total Boolean function that depends on all of its $n$ input bits, then the bounded-error one-way quantum communication complexity of $f \\circ \\mathsf{IP}$ equals $\\Omega(n(b-1))$.\n- If $f$ is a *partial* Boolean function, then the deterministic one-way communication complexity of $f \\circ \\mathsf{IP}$ is at least the non-adaptive decision tree complexity of $f$.\n\nTo prove our quantum lower bound, we first show a lower bound on the VC-dimension of $f \\circ \\mathsf{IP}$. We then appeal to a result of Klauck [STOC '00], which immediately yields our quantum lower bound. Our deterministic lower bound relies on a combinatorial result independently proven by Ahlswede and Khachatrian [Adv. Appl. Math. '98], and Frankl and Tokushige [Comb. '99].\n\nIt is known due to a result of Montanaro and Osborne [arXiv '09] that the deterministic one-way communication complexity of $f \\circ \\mathsf{XOR}$ *equals* the non-adaptive parity decision tree complexity of $f$. In contrast, we show the following when the inner gadget is the AND function on 2 input bits.\n- There exists a function for which even the *quantum* non-adaptive AND decision tree complexity of $f$ is exponentially large in the deterministic one-way communication complexity of $f \\circ \\mathsf{AND}$.\n- However, for symmetric functions $f$, the non-adaptive AND decision tree complexity of $f$ is at most quadratic in the (even two-way) communication complexity of $f \\circ \\mathsf{AND}$.\n\nIn view of the first bullet, a lower bound on non-adaptive AND decision tree complexity of $f$ *does not* lift to a lower bound on one-way communication complexity of $f \\circ \\mathsf{AND}$.\n\nThe proof of the first bullet above uses the well-studied *Odd-Max-Bit* function.\n\nFor the second bullet, we first observe a connection between the one-way communication complexity of $f$ and the *Möbius sparsity* of $f$, and then give a lower bound on the Möbius sparsity of symmetric functions. An upper bound on the non-adaptive AND decision tree complexity of symmetric functions follows implicitly from prior work on combinatorial group testing; for the sake of completeness, we include a proof of this result.\n\nIt is well known that the rank of the communication matrix of a function $F$ is an upper bound on its deterministic one-way communication complexity. This bound is known to be tight for some $F$. However, in our final result we show that this is not the case when $F = f \\circ \\mathsf{AND}$. More precisely we show that for all $f$, the deterministic one-way communication complexity of $F = f \\circ \\mathsf{AND}$ is at most $(\\mathsf{rank}(M_{F}))(1 - \\Omega(1))$, where $M_{F}$ denotes the communication matrix of $F$."
 }
 </script>
 
@@ -550,6 +585,43 @@
 
           <li class="nav-item">
             <a class="nav-link " href="/#publications"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#other"><span>Other</span></a>
           </li>
 
           
@@ -795,6 +867,24 @@
   <div class="article-container">
 
     
+    <h3>Abstract</h3>
+    <p class="pub-abstract"><p>We study the relationship between various one-way communication complexity measures of a composed function with the analogous decision tree complexity of the outer function. We consider two gadgets: the AND function on 2 inputs, and the Inner Product on a constant number of inputs. More generally, we show the following when the gadget is Inner Product on $2b$ input bits for all $b \geq 2$, denoted $\mathsf{IP}$.</p>
+<ul>
+<li>If $f$ is a total Boolean function that depends on all of its $n$ input bits, then the bounded-error one-way quantum communication complexity of $f \circ \mathsf{IP}$ equals $\Omega(n(b-1))$.</li>
+<li>If $f$ is a <em>partial</em> Boolean function, then the deterministic one-way communication complexity of $f \circ \mathsf{IP}$ is at least the non-adaptive decision tree complexity of $f$.</li>
+</ul>
+<p>To prove our quantum lower bound, we first show a lower bound on the VC-dimension of $f \circ \mathsf{IP}$. We then appeal to a result of Klauck [STOC &lsquo;00], which immediately yields our quantum lower bound. Our deterministic lower bound relies on a combinatorial result independently proven by Ahlswede and Khachatrian [Adv. Appl. Math. &lsquo;98], and Frankl and Tokushige [Comb. &lsquo;99].</p>
+<p>It is known due to a result of Montanaro and Osborne [arXiv &lsquo;09] that the deterministic one-way communication complexity of $f \circ \mathsf{XOR}$ <em>equals</em> the non-adaptive parity decision tree complexity of $f$. In contrast, we show the following when the inner gadget is the AND function on 2 input bits.</p>
+<ul>
+<li>There exists a function for which even the <em>quantum</em> non-adaptive AND decision tree complexity of $f$ is exponentially large in the deterministic one-way communication complexity of $f \circ \mathsf{AND}$.</li>
+<li>However, for symmetric functions $f$, the non-adaptive AND decision tree complexity of $f$ is at most quadratic in the (even two-way) communication complexity of $f \circ \mathsf{AND}$.</li>
+</ul>
+<p>In view of the first bullet, a lower bound on non-adaptive AND decision tree complexity of $f$ <em>does not</em> lift to a lower bound on one-way communication complexity of $f \circ \mathsf{AND}$.</p>
+<p>The proof of the first bullet above uses the well-studied <em>Odd-Max-Bit</em> function.</p>
+<p>For the second bullet, we first observe a connection between the one-way communication complexity of $f$ and the <em>Möbius sparsity</em> of $f$, and then give a lower bound on the Möbius sparsity of symmetric functions. An upper bound on the non-adaptive AND decision tree complexity of symmetric functions follows implicitly from prior work on combinatorial group testing; for the sake of completeness, we include a proof of this result.</p>
+<p>It is well known that the rank of the communication matrix of a function $F$ is an upper bound on its deterministic one-way communication complexity. This bound is known to be tight for some $F$. However, in our final result we show that this is not the case when $F = f \circ \mathsf{AND}$. More precisely we show that for all $f$, the deterministic one-way communication complexity of $F = f \circ \mathsf{AND}$ is at most $(\mathsf{rank}(M_{F}))(1 - \Omega(1))$, where $M_{F}$ denotes the communication matrix of $F$.</p>
+</p>
+    
 
     
     
@@ -837,6 +927,12 @@
 
 
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/recent/">recent</a>
+  
+</div>
 
 
 
@@ -968,7 +1064,7 @@
     <div class="media-body">
       <h5 class="card-title"><a href="https://suhailsherif.github.io/">Suhail Sherif</a></h5>
       <h6 class="card-subtitle">Postdoctoral Researcher</h6>
-      <p class="card-text">I work in theoretical computer science, with a focus on query and communicaiton complexity.</p>
+      <p class="card-text">I work in theoretical computer science, with a focus on query and communication complexity.</p>
       <ul class="network-icon" aria-hidden="true">
   
     

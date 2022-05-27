@@ -33,10 +33,122 @@
     </item>
     
     <item>
+      <title>Fine Design</title>
+      <link>https://suhailsherif.github.io/misc/fine_design/</link>
+      <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://suhailsherif.github.io/misc/fine_design/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/finedesignvideos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fine Design&lt;/a&gt; (turns out you can&amp;rsquo;t change the name of a channel once you create it) was a result of me trying out Grant Sanderson&amp;rsquo;s amazing &lt;a href=&#34;https://github.com/3b1b/manim&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;manim&lt;/a&gt; library for mathematics-related animations. Thanks to that I ended up making a bunch of videos about topics that I considered layman-accessible but that I couldn&amp;rsquo;t find on YouTube. Here&amp;rsquo;s a list of topics covered.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A hat puzzle that I really like for its basic yet insightful lower bound technique, and which has a very impressive upper bound too. &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=_Z3Wkbbvc2s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the video &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A series on the BIGNUM BAKEOFF contest, where contestants had to submit $512$-character C codes and the code that returns the largest number (when run on a hypothetical computer with arbitrarily large ints) wins. It touches a lot of topics in theoretical computer science and mathematical logic. &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=U1K6TOy6yjU&amp;amp;list=PL-R4p-BRL8NR8THgjx_DW9c92VHTtjZEY&amp;amp;index=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the playlist &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A video on the Graham-Pollak Theorem and how the proof of such a combinatorial statement is so &amp;ldquo;non-combinatorial&amp;rdquo;. &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=6ByCnuCbPsg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the video &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A series on Markov&amp;rsquo;s Theorem (the one that bounds the maximum slope of a degree $d$ polynomial that is bounded in an interval). There&amp;rsquo;s a fascinating proof that I&amp;rsquo;ve tried to present. &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=9pPS8Me_iFw&amp;amp;list=PL-R4p-BRL8NRjpfJ7X8U1fsLjgrejieDI&amp;amp;index=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the playlist &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A series on quantum brute-force password checking, with an upper bound from Grover&amp;rsquo;s algorithm and a matching lower bound from Markov&amp;rsquo;s theorem. &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=FhGQQ4fLXX0&amp;amp;list=PL-R4p-BRL8NSCoZAsClRd-fz0_IJ1am0C&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the playlist &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you&amp;rsquo;re allowed to change a number $N$ in base $10$ by adding plus signs in the middle, (i.e. $15243 \to 1+5+24+3 = 32$ is a valid step), then as $N \to \infty$, how many steps would you need to reach a single-digit number? $O(\log^*N)$ is easy to prove, but can you show a better upper bound? &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=fQIEY7eVwLo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the video &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>One-Way Communication Complexity and Non-Adaptive Decision Trees</title>
       <link>https://suhailsherif.github.io/publication/mss-22/</link>
       <pubDate>Thu, 26 May 2022 08:13:27 +0000</pubDate>
       <guid>https://suhailsherif.github.io/publication/mss-22/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECCC Fixes</title>
+      <link>https://suhailsherif.github.io/misc/eccc_fixes/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://suhailsherif.github.io/misc/eccc_fixes/</guid>
+      <description>&lt;h2 id=&#34;the-problems&#34;&gt;The Problems&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;ECCC has an annoying habit of downloading reports to your computer instead of opening them in the browser.&lt;/li&gt;
+&lt;li&gt;The ECCC report upload page has a bug whenever you enter a space in a coauthor&amp;rsquo;s name that causes the entire page to crash.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;ECCC Fixes is a browser extension available for both Chrome-based browsers and for Firefox. You can find the extensions and more details about it (including the source code) &lt;a href=&#34;https://github.com/suhailsherif/eccc-fixes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;over here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Communication Complexity and Quantum Optimization Lower Bounds via Query Complexity</title>
+      <link>https://suhailsherif.github.io/publication/thesis/</link>
+      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://suhailsherif.github.io/publication/thesis/</guid>
       <description></description>
     </item>
     
