@@ -5,12 +5,20 @@
     <link>https://suhailsherif.github.io/publication-type/1/</link>
       <atom:link href="https://suhailsherif.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
     <description>1</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 May 2022 08:13:27 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png</url>
       <title>1</title>
       <link>https://suhailsherif.github.io/publication-type/1/</link>
     </image>
+    
+    <item>
+      <title>Lifting to Parity Decision Trees via Stifling</title>
+      <link>https://suhailsherif.github.io/publication/cmss-23/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://suhailsherif.github.io/publication/cmss-23/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>One-Way Communication Complexity and Non-Adaptive Decision Trees</title>

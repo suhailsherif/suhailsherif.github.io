@@ -64,10 +64,10 @@
   
     
   
-  <meta name="description" content="We study the first-order convex optimization problem, where we have black-box access to a (not necessarily smooth) function $f:\\mathbb{R}^n \\to \\mathbb{R}$ and its (sub)gradient. Our goal is to find an $\\epsilon$-approximate minimum of $f$ starting from a point that is distance at most $R$ from the true minimum. If $f$ is $G$-Lipschitz, then the classic gradient descent algorithm solves this problem with $O((GR/\\epsilon)^2)$ queries. Importantly, the number of queries is independent of the dimension n and gradient descent is optimal in this regard: No deterministic or randomized algorithm can achieve better complexity that is still independent of the dimension $n$.&lt;br&gt;&lt;br&gt; In this paper we reprove the randomized lower bound of $\\Omega((GR/\\epsilon)^2)$ using a simpler argument than previous lower bounds. We then show that although the function family used in the lower bound is hard for randomized algorithms, it can be solved using $O(GR/\\epsilon)$ quantum queries. We then show an improved lower bound against quantum algorithms using a different set of instances and establish our main result that in general even quantum algorithms need $\\Omega((GR/\\epsilon)^2)$ queries to solve the problem. Hence there is no quantum speedup over gradient descent for black-box first-order convex optimization without further assumptions on the function family." />
+  <meta name="description" content="We show that the deterministic decision tree complexity of a (partial) function or relation $f$ lifts to the deterministic parity decision tree (PDT) size complexity of the composed function/relation $f \circ g$ as long as the gadget $g$ satisfies a property that we call stifling. We observe that several simple gadgets of constant size, like Indexing on 3 input bits, Inner Product on 4 input bits, Majority on 3 input bits and random functions, satisfy this property. It can be shown that existing randomized communication lifting theorems ([Göös, Pitassi, Watson. SICOMP&#39;20], [Chattopadhyay et al. SICOMP&#39;21]) imply PDT-size lifting. However there are two shortcomings of this approach: first they lift randomized decision tree complexity of $f$, which could be exponentially smaller than its deterministic counterpart when either $f$ is a partial function or even a total search problem. Second, the size of the gadgets in such lifting theorems are as large as logarithmic in the size of the input to $f$. Reducing the gadget size to a constant is an important open problem at the frontier of current research.&lt;br&gt;&lt;br&gt; Our result shows that even a random constant-size gadget does enable lifting to PDT size. Further, it also yields the first systematic way of turning lower bounds on the width of tree-like resolution proofs of the unsatisfiability of constant-width CNF formulas to lower bounds on the size of tree-like proofs in the resolution with parity system, i.e., $\mathrm{Res}(\oplus)$, of the unsatisfiability of closely related constant-width CNF formulas." />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://suhailsherif.github.io/publication/gkns-20/" />
+  <link rel="alternate" hreflang="en-us" href="https://suhailsherif.github.io/publication/cmss-23/" />
 
   
   
@@ -285,7 +285,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="https://suhailsherif.github.io/publication/gkns-20/" />
+  <link rel="canonical" href="https://suhailsherif.github.io/publication/cmss-23/" />
 
   
   
@@ -311,18 +311,18 @@
     <meta property="twitter:creator" content="@wowchemy" />
   
   <meta property="og:site_name" content="Suhail Sherif" />
-  <meta property="og:url" content="https://suhailsherif.github.io/publication/gkns-20/" />
-  <meta property="og:title" content="No Quantum Speedup over Gradient Descent for Non-Smooth Convex Optimization | Suhail Sherif" />
-  <meta property="og:description" content="We study the first-order convex optimization problem, where we have black-box access to a (not necessarily smooth) function $f:\\mathbb{R}^n \\to \\mathbb{R}$ and its (sub)gradient. Our goal is to find an $\\epsilon$-approximate minimum of $f$ starting from a point that is distance at most $R$ from the true minimum. If $f$ is $G$-Lipschitz, then the classic gradient descent algorithm solves this problem with $O((GR/\\epsilon)^2)$ queries. Importantly, the number of queries is independent of the dimension n and gradient descent is optimal in this regard: No deterministic or randomized algorithm can achieve better complexity that is still independent of the dimension $n$.&lt;br&gt;&lt;br&gt; In this paper we reprove the randomized lower bound of $\\Omega((GR/\\epsilon)^2)$ using a simpler argument than previous lower bounds. We then show that although the function family used in the lower bound is hard for randomized algorithms, it can be solved using $O(GR/\\epsilon)$ quantum queries. We then show an improved lower bound against quantum algorithms using a different set of instances and establish our main result that in general even quantum algorithms need $\\Omega((GR/\\epsilon)^2)$ queries to solve the problem. Hence there is no quantum speedup over gradient descent for black-box first-order convex optimization without further assumptions on the function family." /><meta property="og:image" content="https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="https://suhailsherif.github.io/publication/cmss-23/" />
+  <meta property="og:title" content="Lifting to Parity Decision Trees via Stifling | Suhail Sherif" />
+  <meta property="og:description" content="We show that the deterministic decision tree complexity of a (partial) function or relation $f$ lifts to the deterministic parity decision tree (PDT) size complexity of the composed function/relation $f \circ g$ as long as the gadget $g$ satisfies a property that we call stifling. We observe that several simple gadgets of constant size, like Indexing on 3 input bits, Inner Product on 4 input bits, Majority on 3 input bits and random functions, satisfy this property. It can be shown that existing randomized communication lifting theorems ([Göös, Pitassi, Watson. SICOMP&#39;20], [Chattopadhyay et al. SICOMP&#39;21]) imply PDT-size lifting. However there are two shortcomings of this approach: first they lift randomized decision tree complexity of $f$, which could be exponentially smaller than its deterministic counterpart when either $f$ is a partial function or even a total search problem. Second, the size of the gadgets in such lifting theorems are as large as logarithmic in the size of the input to $f$. Reducing the gadget size to a constant is an important open problem at the frontier of current research.&lt;br&gt;&lt;br&gt; Our result shows that even a random constant-size gadget does enable lifting to PDT size. Further, it also yields the first systematic way of turning lower bounds on the width of tree-like resolution proofs of the unsatisfiability of constant-width CNF formulas to lower bounds on the size of tree-like proofs in the resolution with parity system, i.e., $\mathrm{Res}(\oplus)$, of the unsatisfiability of closely related constant-width CNF formulas." /><meta property="og:image" content="https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2022-05-26T06:19:58&#43;00:00"
+        content="2023-01-11T06:19:58&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2022-05-26T02:11:26-04:00">
+    <meta property="article:modified_time" content="2023-01-11T02:11:26-04:00">
   
 
   
@@ -344,16 +344,16 @@
   "@type": "Article",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://suhailsherif.github.io/publication/gkns-20/"
+    "@id": "https://suhailsherif.github.io/publication/cmss-23/"
   },
-  "headline": "No Quantum Speedup over Gradient Descent for Non-Smooth Convex Optimization",
+  "headline": "Lifting to Parity Decision Trees via Stifling",
   
-  "datePublished": "2022-05-26T06:19:58Z",
-  "dateModified": "2022-05-26T02:11:26-04:00",
+  "datePublished": "2023-01-11T06:19:58Z",
+  "dateModified": "2023-01-11T02:11:26-04:00",
   
   "author": {
     "@type": "Person",
-    "name": "Ankit Garg"
+    "name": "Arkadev Chattopadhyay"
   },
   
   "publisher": {
@@ -364,7 +364,7 @@
       "url": "https://suhailsherif.github.io/media/icon_hue62b90a59147648f93b0b02e2d4df377_132123_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "We study the first-order convex optimization problem, where we have black-box access to a (not necessarily smooth) function $f:\\\\mathbb{R}^n \\\\to \\\\mathbb{R}$ and its (sub)gradient. Our goal is to find an $\\\\epsilon$-approximate minimum of $f$ starting from a point that is distance at most $R$ from the true minimum. If $f$ is $G$-Lipschitz, then the classic gradient descent algorithm solves this problem with $O((GR/\\\\epsilon)^2)$ queries. Importantly, the number of queries is independent of the dimension n and gradient descent is optimal in this regard: No deterministic or randomized algorithm can achieve better complexity that is still independent of the dimension $n$.\u003cbr\u003e\u003cbr\u003e In this paper we reprove the randomized lower bound of $\\\\Omega((GR/\\\\epsilon)^2)$ using a simpler argument than previous lower bounds. We then show that although the function family used in the lower bound is hard for randomized algorithms, it can be solved using $O(GR/\\\\epsilon)$ quantum queries. We then show an improved lower bound against quantum algorithms using a different set of instances and establish our main result that in general even quantum algorithms need $\\\\Omega((GR/\\\\epsilon)^2)$ queries to solve the problem. Hence there is no quantum speedup over gradient descent for black-box first-order convex optimization without further assumptions on the function family."
+  "description": "We show that the deterministic decision tree complexity of a (partial) function or relation $f$ lifts to the deterministic parity decision tree (PDT) size complexity of the composed function/relation $f \\circ g$ as long as the gadget $g$ satisfies a property that we call stifling. We observe that several simple gadgets of constant size, like Indexing on 3 input bits, Inner Product on 4 input bits, Majority on 3 input bits and random functions, satisfy this property. It can be shown that existing randomized communication lifting theorems ([Göös, Pitassi, Watson. SICOMP'20], [Chattopadhyay et al. SICOMP'21]) imply PDT-size lifting. However there are two shortcomings of this approach: first they lift randomized decision tree complexity of $f$, which could be exponentially smaller than its deterministic counterpart when either $f$ is a partial function or even a total search problem. Second, the size of the gadgets in such lifting theorems are as large as logarithmic in the size of the input to $f$. Reducing the gadget size to a constant is an important open problem at the frontier of current research.\u003cbr\u003e\u003cbr\u003e Our result shows that even a random constant-size gadget does enable lifting to PDT size. Further, it also yields the first systematic way of turning lower bounds on the width of tree-like resolution proofs of the unsatisfiability of constant-width CNF formulas to lower bounds on the size of tree-like proofs in the resolution with parity system, i.e., $\\mathrm{Res}(\\oplus)$, of the unsatisfiability of closely related constant-width CNF formulas."
 }
 </script>
 
@@ -380,11 +380,11 @@
 
 
 
-  <title>No Quantum Speedup over Gradient Descent for Non-Smooth Convex Optimization | Suhail Sherif</title>
+  <title>Lifting to Parity Decision Trees via Stifling | Suhail Sherif</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="d27b0787008eb10795c1e8e0c2001ff4" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="8d6713772f1f3cd1cf46daa8aa098c97" >
 
   
   
@@ -720,7 +720,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>No Quantum Speedup over Gradient Descent for Non-Smooth Convex Optimization</h1>
+  <h1>Lifting to Parity Decision Trees via Stifling</h1>
 
   
 
@@ -738,10 +738,10 @@
     
 
   <span >
-      Ankit Garg</span>, <span >
-      Robin Kothari</span>, <span >
-      Praneeth Netrapalli</span>, <span class="author-highlighted">
-      Suhail Sherif</span>
+      Arkadev Chattopadhyay</span>, <span >
+      Nikhil S. Mande</span>, <span class="author-highlighted">
+      Suhail Sherif</span>, <span >
+      Swagato Sanyal</span>
   </div>
   
   
@@ -752,7 +752,7 @@
     
       
     
-    January, 2021
+    January, 2023
   </span>
   
 
@@ -793,7 +793,7 @@
 
 
 <a href="#" class="btn btn-outline-primary btn-page-header js-cite-modal"
-        data-filename="/publication/gkns-20/cite.bib">
+        data-filename="/publication/cmss-23/cite.bib">
   Cite
 </a>
 
@@ -821,7 +821,7 @@
   
     
   
-  <a class="btn btn-outline-primary btn-page-header" href="https://arxiv.org/abs/2010.01801" target="_blank" rel="noopener">
+  <a class="btn btn-outline-primary btn-page-header" href="https://arxiv.org/abs/2211.17214" target="_blank" rel="noopener">
     arXiv</a>
 
   
@@ -835,7 +835,7 @@
   
     
   
-  <a class="btn btn-outline-primary btn-page-header" href="https://www.youtube.com/watch?v=_JpxJ8ufEKg" target="_blank" rel="noopener">
+  <a class="btn btn-outline-primary btn-page-header" href="https://www.youtube.com/watch?v=xcnn6jVNY0o" target="_blank" rel="noopener">
     Talk Video</a>
 
 
@@ -851,7 +851,7 @@
 
     
     <h3>Abstract</h3>
-    <p class="pub-abstract">We study the first-order convex optimization problem, where we have black-box access to a (not necessarily smooth) function $f:\mathbb{R}^n \to \mathbb{R}$ and its (sub)gradient. Our goal is to find an $\epsilon$-approximate minimum of $f$ starting from a point that is distance at most $R$ from the true minimum. If $f$ is $G$-Lipschitz, then the classic gradient descent algorithm solves this problem with $O((GR/\epsilon)^2)$ queries. Importantly, the number of queries is independent of the dimension n and gradient descent is optimal in this regard: No deterministic or randomized algorithm can achieve better complexity that is still independent of the dimension $n$.<br><br> In this paper we reprove the randomized lower bound of $\Omega((GR/\epsilon)^2)$ using a simpler argument than previous lower bounds. We then show that although the function family used in the lower bound is hard for randomized algorithms, it can be solved using $O(GR/\epsilon)$ quantum queries. We then show an improved lower bound against quantum algorithms using a different set of instances and establish our main result that in general even quantum algorithms need $\Omega((GR/\epsilon)^2)$ queries to solve the problem. Hence there is no quantum speedup over gradient descent for black-box first-order convex optimization without further assumptions on the function family.</p>
+    <p class="pub-abstract">We show that the deterministic decision tree complexity of a (partial) function or relation $f$ lifts to the deterministic parity decision tree (PDT) size complexity of the composed function/relation $f \circ g$ as long as the gadget $g$ satisfies a property that we call stifling. We observe that several simple gadgets of constant size, like Indexing on 3 input bits, Inner Product on 4 input bits, Majority on 3 input bits and random functions, satisfy this property. It can be shown that existing randomized communication lifting theorems ([Göös, Pitassi, Watson. SICOMP'20], [Chattopadhyay et al. SICOMP'21]) imply PDT-size lifting. However there are two shortcomings of this approach: first they lift randomized decision tree complexity of $f$, which could be exponentially smaller than its deterministic counterpart when either $f$ is a partial function or even a total search problem. Second, the size of the gadgets in such lifting theorems are as large as logarithmic in the size of the input to $f$. Reducing the gadget size to a constant is an important open problem at the frontier of current research.<br><br> Our result shows that even a random constant-size gadget does enable lifting to PDT size. Further, it also yields the first systematic way of turning lower bounds on the width of tree-like resolution proofs of the unsatisfiability of constant-width CNF formulas to lower bounds on the size of tree-like proofs in the resolution with parity system, i.e., $\mathrm{Res}(\oplus)$, of the unsatisfiability of closely related constant-width CNF formulas.</p>
     
 
     
@@ -879,7 +879,7 @@
       <div class="col-md-10">
         <div class="row">
           <div class="col-12 col-md-3 pub-row-heading">Publication</div>
-          <div class="col-12 col-md-9"><em>ITCS 2021</em></div>
+          <div class="col-12 col-md-9"><em>ITCS 2023</em></div>
         </div>
       </div>
       <div class="col-md-1"></div>
@@ -915,7 +915,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://suhailsherif.github.io/publication/gkns-20/&amp;text=No%20Quantum%20Speedup%20over%20Gradient%20Descent%20for%20Non-Smooth%20Convex%20Optimization" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://suhailsherif.github.io/publication/cmss-23/&amp;text=Lifting%20to%20Parity%20Decision%20Trees%20via%20Stifling" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -928,7 +928,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://suhailsherif.github.io/publication/gkns-20/&amp;t=No%20Quantum%20Speedup%20over%20Gradient%20Descent%20for%20Non-Smooth%20Convex%20Optimization" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://suhailsherif.github.io/publication/cmss-23/&amp;t=Lifting%20to%20Parity%20Decision%20Trees%20via%20Stifling" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -941,7 +941,7 @@
       
       
       <li>
-        <a href="mailto:?subject=No%20Quantum%20Speedup%20over%20Gradient%20Descent%20for%20Non-Smooth%20Convex%20Optimization&amp;body=https://suhailsherif.github.io/publication/gkns-20/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=Lifting%20to%20Parity%20Decision%20Trees%20via%20Stifling&amp;body=https://suhailsherif.github.io/publication/cmss-23/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -954,7 +954,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://suhailsherif.github.io/publication/gkns-20/&amp;title=No%20Quantum%20Speedup%20over%20Gradient%20Descent%20for%20Non-Smooth%20Convex%20Optimization" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=https://suhailsherif.github.io/publication/cmss-23/&amp;title=Lifting%20to%20Parity%20Decision%20Trees%20via%20Stifling" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -967,7 +967,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=No%20Quantum%20Speedup%20over%20Gradient%20Descent%20for%20Non-Smooth%20Convex%20Optimization%20https://suhailsherif.github.io/publication/gkns-20/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=Lifting%20to%20Parity%20Decision%20Trees%20via%20Stifling%20https://suhailsherif.github.io/publication/cmss-23/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -980,7 +980,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://suhailsherif.github.io/publication/gkns-20/&amp;title=No%20Quantum%20Speedup%20over%20Gradient%20Descent%20for%20Non-Smooth%20Convex%20Optimization" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://suhailsherif.github.io/publication/cmss-23/&amp;title=Lifting%20to%20Parity%20Decision%20Trees%20via%20Stifling" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -999,12 +999,6 @@
 
 
   
-  
-    
-
-
-
-
   
     
 
@@ -1079,6 +1073,12 @@
 
     </div>
   </div>
+
+
+  
+    
+
+
 
 
   
