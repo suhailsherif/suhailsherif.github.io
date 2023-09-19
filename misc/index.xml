@@ -33,6 +33,19 @@
 &lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;A video on impossibility proofs and the Natural Proofs Barrier (given as an example of an impossibility proof about coming up with impossibility proofs). &lt;ul class=&#34;cta-group&#34;&gt;
+  
+  
+  &lt;li&gt;
+    &lt;a href=&#34;https://www.youtube.com/watch?v=xLGLyh4crvQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+      Watch the video &lt;i class=&#34;fas fa-angle-right&#34;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;A series on the BIGNUM BAKEOFF contest, where contestants had to submit $512$-character C codes and the code that returns the largest number (when run on a hypothetical computer with arbitrarily large ints) wins. It touches a lot of topics in theoretical computer science and mathematical logic. &lt;ul class=&#34;cta-group&#34;&gt;
   
   
